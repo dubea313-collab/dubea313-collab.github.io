@@ -169,7 +169,7 @@ section{padding:56px 0;scroll-margin-top:56px}
 .chip.sk{font-size:12.5px;color:var(--ink);padding:5px 9px}
 .st{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.04em;padding:3px 8px;border:1px solid var(--line);background:var(--sheet);color:var(--muted)}
 .st-built{color:var(--ok);border-color:currentColor}
-.st-in-progress{color:var(--accent);border-color:currentColor}
+.st-completed{color:var(--ok);border-color:currentColor}
 .outcome{border-left:3px solid var(--ok);padding-left:10px;font-size:14px}
 
 /* logbook */
@@ -353,7 +353,7 @@ const DATA = {
 
   about: [
     "I'm an Electronics and Communication Engineering undergraduate at KPR Institute of Engineering and Technology, studying with Honors in IoT for Smart Systems, with research and industry internship experience in embedded systems, IoT, biomedical sensing and PCB design.",
-    "I like taking hardware from schematic to working prototype, from custom ESP32 boards to a SpO2 monitor and a PID line-following robot, and I apply lightweight machine learning on embedded platforms. Lately I've moved from building around development boards to designing the hardware platform itself, such as my custom ESP32-S3 board in KiCad.",
+    "I like taking hardware from schematic to working prototype, from custom ESP32 boards to a SpO2 monitor and a PID line-following robot, and I apply lightweight machine learning on embedded platforms. Lately I've moved from building around development boards to designing the hardware platform itself, such as my custom ESP32-S3 board, which I designed in KiCad, fabricated and brought up.",
     "I'm especially interested in automotive electronics: in-vehicle systems, sensors and embedded software. I'm looking for an internship where I can gain industry experience building safe, efficient embedded systems."
   ],
   facts: [
@@ -390,13 +390,13 @@ const DATA = {
 
   projectCategories: ["PCB & Hardware","Robotics","Embedded & IoT","Research & ML"],
   projects: [
-    { title:"Closed-Loop TENS System for Functional Tremor Rehabilitation", cat:"Research & ML", year:"2026", status:"Research",
+    { title:"Closed-Loop TENS System for Functional Tremor Rehabilitation", cat:"Research & ML", year:"2026", status:"Completed",
       imgs:[["images/osmania-nextgen.jpg","KPRIET NextGen Internship announcement: research at Osmania University, Hyderabad, June–July 2026"]],
       problem:"Functional tremor therapy is usually open-loop, stimulating whether or not tremor is present.",
       approach:"EMG and IMU (MPU9250) data on ESP32: collected, filtered and turned into features, then a Random Forest model trained to detect tremor.",
       outcome:"A closed-loop concept in which detected tremor triggers TENS stimulation to help suppress it. Research internship at Osmania University.",
       stack:["ESP32","EMG","MPU9250 IMU","Signal processing","Random Forest"], links:[] },
-    { title:"Intelligent Predictive Maintenance & Machine Fault Detection", cat:"Research & ML", year:"2026", status:"Simulated",
+    { title:"Intelligent Predictive Maintenance & Machine Fault Detection", cat:"Research & ML", year:"2026", status:"Completed",
       problem:"Machines are often repaired only after they fail.",
       approach:"Arduino Mega 2560 prototype simulated in Proteus, applying machine learning and time-series analysis to normal, degrading and near-failure data.",
       outcome:"Normal / Warning / Critical classification with maintenance alerts, plus the parameters that drive failures.",
@@ -413,11 +413,11 @@ const DATA = {
       approach:"One reusable board: ESP32, TB6612FNG motor driver, 0.96″ OLED, 6 programmable buttons, on-board DC-DC buck converter and an expansion header for sensors.",
       outcome:"Working base platform for line-follower, maze-solver, obstacle-avoidance and navigation robots.",
       stack:["ESP32","TB6612FNG","OLED","Buck converter","EasyEDA"], links:[["LinkedIn post","https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/"]] },
-    { title:"Custom ESP32-S3 Development Board", cat:"PCB & Hardware", year:"2026", status:"In progress",
+    { title:"Custom ESP32-S3 Development Board", cat:"PCB & Hardware", year:"2026", status:"Built",
       imgs:[["images/esp32s3-board.jpg","ESP32-S3 board in KiCad: 3D view, PCB layout with antenna keep-out zone, and schematic"]],
       problem:"Development boards limit how compact and purpose-built a product can be.",
       approach:"Standalone ESP32-S3-WROOM-1 board designed in KiCad: USB-C power and native USB, 5 V → 3.3 V LDO regulation, EN/BOOT circuitry, USB routing, decoupling, GPIO breakout, grounding and antenna clearance.",
-      outcome:"Schematic and PCB layout complete. Fabrication and hardware bring-up in progress.",
+      outcome:"Fabricated, assembled, brought up and functionally tested: a working custom ESP32-S3 platform designed from scratch.",
       stack:["KiCad","ESP32-S3","USB-C","Power regulation"], links:[["LinkedIn post","https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/"]] },
     { title:"SpO2 (Blood Oxygen) Monitoring System", cat:"PCB & Hardware", year:"", status:"Built",
       problem:"Blood oxygen and pulse need to be measured reliably and shown in real time.",
@@ -469,8 +469,8 @@ const DATA = {
   logTypes: { Internship:"#1f45e0", Build:"#1b8a5a", Course:"#2f6f8a", Competition:"#b4530a", Club:"#8a2bb4" },
   logbook: [
     { date:"2026-11", type:"Course", what:"Microelectronics: Devices to Circuits (NPTEL)", result:"Certified" },
-    { date:"2026-10", type:"Build", what:"Predictive maintenance & machine fault detection system", result:"Simulated in Proteus with ML alerts" },
-    { date:"2026-09", type:"Build", what:"Finished the schematic and PCB layout for my custom ESP32-S3 board in KiCad", result:"Layout done · fabrication next" },
+    { date:"2026-10", type:"Build", what:"Predictive maintenance & machine fault detection system (Proteus simulation)", result:"Completed" },
+    { date:"2026-09", type:"Build", what:"Custom ESP32-S3 board: KiCad design, fabrication, bring-up and testing", result:"Built & tested" },
     { date:"2026-08", type:"Build", what:"Designed and built the ESP32 Robotics Control Board", result:"Working board" },
     { date:"2026-08", type:"Course", what:"Real-Time Programming for the QNX Operating System (QNX)", result:"Certified" },
     { date:"2026-08", type:"Course", what:"AI for Communication Systems (Universiti Tun Hussein Onn Malaysia)", result:"Certified" },
@@ -536,7 +536,7 @@ const DATA = {
   ],
 
   now: [
-    { k:"Building", v:"Fabricating, assembling and bringing up my custom ESP32-S3 board." },
+    { k:"Recently finished", v:"My custom ESP32-S3 board, from KiCad schematic to fabricated, tested hardware." },
     { k:"Learning", v:"Real-time systems (QNX, RTOS) and analog microelectronics." },
     { k:"With the club", v:"Robots on the ARC control board: line followers, maze solvers and more." },
     { k:"Looking for", v:"Embedded systems internships, especially in automotive electronics." }
