@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andile Tafuma Dube</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: the site reads like an engineering drawing sheet — title block, revision log, part list. */
+:root{
+  --paper:#eef1f0; --sheet:#f8faf9; --ink:#14202b; --muted:#5b6a75; --line:#c9d2d6;
+  --accent:#1f45e0; --accent-ink:#ffffff; --ok:#1b8a5a;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --grid:rgba(20,32,43,.05);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0c1720; --sheet:#112130; --ink:#e3ebf0; --muted:#8fa2b0; --line:#25394a;
+    --accent:#7d97ff; --accent-ink:#0c1720; --ok:#4cc790; --grid:rgba(160,190,220,.06);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0c1720; --sheet:#112130; --ink:#e3ebf0; --muted:#8fa2b0; --line:#25394a;
+  --accent:#7d97ff; --accent-ink:#0c1720; --ok:#4cc790; --grid:rgba(160,190,220,.06);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--body);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800;font-stretch:112%;letter-spacing:-.01em}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+
+/* sample banner */
+.sample{background:var(--accent);color:var(--accent-ink);font:600 13px/1.4 var(--mono);text-align:center;padding:8px 16px}
+
+/* nav */
+nav.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:20px;height:56px}
+.logo{font:800 18px var(--display);font-stretch:125%;color:var(--ink);text-decoration:none;letter-spacing:.02em}
+.links{display:flex;gap:18px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.links a{font:500 13px var(--mono);color:var(--muted);text-decoration:none;white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
+.links a:hover{color:var(--ink)}
+.theme-btn{border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:6px;padding:6px 10px;font:12px var(--mono);cursor:pointer}
+
+/* hero = title block */
+.hero{padding:56px 0 40px}
+.sheet{background:var(--sheet);border:1.5px solid var(--ink);position:relative}
+.hero-grid{display:grid;grid-template-columns:1.6fr 1fr}
+.hero-main{padding:36px;border-right:1.5px solid var(--ink);display:flex;flex-direction:column;gap:20px}
+.hero h1{font-size:clamp(44px,8vw,96px);font-weight:900;font-stretch:118%;line-height:.92;letter-spacing:-.025em}
+.hero .role{font:600 clamp(17px,2vw,21px)/1.4 var(--body)}
+.hero .thesis{color:var(--muted);max-width:56ch}
+.status{display:inline-flex;align-items:center;gap:8px;font:600 12px var(--mono);text-transform:uppercase;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:5px 12px;width:fit-content}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 25%,transparent)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--body);padding:11px 18px;border-radius:6px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--sheet)}
+.btn:hover{transform:translateY(-1px)}
+.tblock{display:grid;grid-template-rows:1fr auto}
+.portrait{margin:0;position:relative;overflow:hidden;background:var(--ink);min-height:320px}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;position:absolute;inset:0}
+.portrait figcaption{position:absolute;left:0;bottom:0;background:var(--sheet);color:var(--ink);padding:6px 12px;border-top:1px solid var(--ink);border-right:1px solid var(--ink)}
+.hcells{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-top:4px}
+.hcells>div{padding:12px 0;border-bottom:1px solid var(--line)}
+.hcells>div:nth-child(odd){padding-right:16px}
+.hcells .val{font:600 15px var(--body);margin-top:2px}
+.proj .ph{position:relative;aspect-ratio:4/3;border-bottom:1px solid var(--line);background:var(--ink);cursor:zoom-in;padding:0;border-left:0;border-right:0;border-top:0;display:block;width:100%}
+.proj .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.proj .ph .tag,.proj .ph .st{position:absolute;top:12px}
+.proj .ph .tag{left:12px;font:600 11px var(--mono);background:var(--ink);color:var(--sheet);padding:3px 8px;text-transform:uppercase}
+.proj .ph .st{right:12px}
+.proj .ph .more{position:absolute;right:12px;bottom:12px;font:600 11px var(--mono);background:var(--sheet);color:var(--ink);padding:3px 8px}
+.li.withimg{grid-template-columns:96px 1fr auto}
+.li.withimg .thumbi{grid-row:1/3;width:96px;height:72px;object-fit:cover;border:1px solid var(--line);cursor:zoom-in}
+.li.withimg .sub{grid-column:2}
+.li.withimg .yr{grid-column:3}
+.beyond{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.beyond .card img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(8,14,20,.9);display:none;align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:12px}
+.lb.open{display:flex}
+.lb img{max-width:min(1000px,100%);max-height:80vh;object-fit:contain;background:#fff}
+.lb .cap{color:#e3ebf0;font:13px var(--mono);text-align:center}
+.lb .row{display:flex;gap:10px}
+.lb button{font:600 13px var(--mono);background:#e3ebf0;color:#14202b;border:0;border-radius:6px;padding:8px 14px;cursor:pointer}
+.tblock .cell{padding:14px 18px;border-bottom:1px solid var(--line)}
+.tblock .cell:last-child{border-bottom:0}
+.tblock .val{font:600 15px var(--body);margin-top:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--ink)}
+.stats div{padding:16px 18px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font:800 32px var(--display);font-stretch:110%;font-variant-numeric:tabular-nums}
+.corner{position:absolute;font:600 11px var(--mono);color:var(--muted);top:-22px;right:0}
+
+/* sections */
+section{padding:56px 0;scroll-margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;border-bottom:1.5px solid var(--ink);padding-bottom:10px;flex-wrap:wrap}
+.sec-head .mono{margin-left:auto}
+.num{font:600 13px var(--mono);color:var(--accent)}
+
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:32px}
+.about p+p{margin-top:14px}
+.about .lead{font-size:19px;line-height:1.55}
+.facts{display:grid;gap:0;border:1px solid var(--line);background:var(--sheet);align-self:start}
+.facts div{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:14px}
+.facts div:last-child{border-bottom:0}
+.facts span:first-child{color:var(--muted)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--sheet);border:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:12px}
+.skill{display:grid;grid-template-columns:1fr auto;gap:6px 10px;align-items:center;font-size:14px}
+.meter{grid-column:1/-1;height:4px;background:var(--line)}
+.meter i{display:block;height:100%;background:var(--accent)}
+.lvl{font:11px var(--mono);color:var(--muted);text-transform:uppercase}
+
+/* timeline */
+.timeline{display:grid;gap:0;border-left:1.5px solid var(--ink);margin-left:6px}
+.tl{position:relative;padding:0 0 32px 28px}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;background:var(--paper);border:2px solid var(--accent)}
+.tl .when{font:600 12px var(--mono);color:var(--muted);text-transform:uppercase}
+.tl .org{color:var(--muted);font-weight:500}
+.tl ul{margin:10px 0 0;padding-left:18px}
+.tl li{margin:4px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 11.5px var(--mono);border:1px solid var(--line);padding:3px 8px;border-radius:4px;color:var(--muted);background:var(--paper)}
+
+/* filters */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filters button{font:600 12px var(--mono);text-transform:uppercase;letter-spacing:.04em;padding:7px 12px;border-radius:6px;border:1px solid var(--line);background:var(--sheet);color:var(--muted);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.proj{background:var(--sheet);border:1px solid var(--line);display:flex;flex-direction:column}
+.proj:hover{border-color:var(--ink)}
+.proj .thumb{height:120px;border-bottom:1px solid var(--line);display:flex;align-items:flex-end;justify-content:space-between;padding:12px 16px;
+  background:repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--accent) 9%,transparent) 10px 11px)}
+.proj .thumb .tag{font:600 11px var(--mono);background:var(--ink);color:var(--sheet);padding:3px 8px;text-transform:uppercase}
+.proj .body{padding:18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.prs{display:grid;gap:6px;font-size:14px}
+.prs b{font:600 11px var(--mono);text-transform:uppercase;color:var(--muted);display:block;letter-spacing:.04em}
+.proj .foot{display:flex;gap:14px;padding:12px 18px;border-top:1px solid var(--line);font:600 13px var(--mono)}
+.proj .foot a{text-decoration:none}
+.chip.sk{font-size:12.5px;color:var(--ink);padding:5px 9px}
+.st{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.04em;padding:3px 8px;border:1px solid var(--line);background:var(--sheet);color:var(--muted)}
+.st-built{color:var(--ok);border-color:currentColor}
+.st-in-progress{color:var(--accent);border-color:currentColor}
+.outcome{border-left:3px solid var(--ok);padding-left:10px;font-size:14px}
+
+/* logbook */
+.log{width:100%;border-collapse:collapse;background:var(--sheet);border:1px solid var(--line);font-size:14px}
+.log-wrap{overflow-x:auto}
+.log th{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;padding:10px 14px;border-bottom:1.5px solid var(--ink);white-space:nowrap}
+.log td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.log td:first-child{font:13px var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--muted)}
+.log tr:last-child td{border-bottom:0}
+.type{font:600 11px var(--mono);text-transform:uppercase;padding:2px 7px;border-radius:4px;white-space:nowrap;border:1px solid currentColor}
+.res{font-weight:600}
+
+/* two-col lists */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.list{display:grid;gap:0;background:var(--sheet);border:1px solid var(--line)}
+.li{padding:16px 18px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:4px 16px}
+.li:last-child{border-bottom:0}
+.li .sub{color:var(--muted);font-size:14px;grid-column:1}
+.li .yr{font:13px var(--mono);color:var(--muted);grid-row:1;grid-column:2}
+
+.now{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.now .card p{font-size:15px}
+
+/* contact */
+.contact{background:var(--ink);color:var(--sheet);padding:44px 36px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.contact h2{color:var(--sheet)}
+.contact p{color:color-mix(in srgb,var(--sheet) 75%,transparent);margin-top:12px;max-width:48ch}
+.mail{font:600 clamp(17px,2.4vw,22px) var(--mono);word-break:break-all}
+.contact .btn{border-color:var(--sheet);color:var(--sheet)}
+.contact .btn.primary{background:var(--sheet);color:var(--ink)}
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.social a{color:var(--sheet);font:500 13px var(--mono);border:1px solid color-mix(in srgb,var(--sheet) 35%,transparent);padding:6px 10px;border-radius:4px;text-decoration:none}
+footer{padding:28px 0 48px;font:12px var(--mono);color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media (max-width:820px){
+  .beyond{grid-template-columns:1fr}
+  .portrait{min-height:420px}
+  .hero-grid,.about,.two,.contact{grid-template-columns:1fr}
+  .hero-main{border-right:0;border-bottom:1.5px solid var(--ink);padding:24px}
+  .contact{padding:32px 22px}
+  .links{display:none}
+}
+</style>
+</head>
+<body>
+<div class="sample" id="sampleBanner">SAMPLE CONTENT — every name, date and number below is a placeholder to replace with your own</div>
+
+<nav class="top"><div class="wrap">
+  <a class="logo" href="#top" id="logo">YN.</a>
+  <div class="links" id="navlinks"></div>
+  <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch light or dark theme">◐ Theme</button>
+</div></nav>
+
+<main id="top">
+<header class="hero"><div class="wrap">
+  <div class="sheet">
+    <span class="corner" id="dwg"></span>
+    <div class="hero-grid">
+      <div class="hero-main">
+        <span class="status" id="status"><i></i><span></span></span>
+        <h1 id="name"></h1>
+        <p class="role" id="role"></p>
+        <p class="thesis" id="thesis"></p>
+        <div class="hcells">
+          <div><div class="mono">Discipline</div><div class="val" id="tb-disc"></div></div>
+          <div><div class="mono">Education</div><div class="val" id="tb-edu"></div></div>
+          <div><div class="mono">Based in</div><div class="val" id="tb-loc"></div></div>
+          <div><div class="mono">Focus areas</div><div class="val" id="tb-focus"></div></div>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View projects →</a>
+          <a class="btn" id="resumeBtn" href="#">Download résumé</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="tblock">
+        <figure class="portrait"><img id="photo" alt="" src=""><figcaption class="mono" id="photoCap"></figcaption></figure>
+        <div class="stats" id="stats"></div>
+      </div>
+    </div>
+  </div>
+</div></header>
+
+<section id="about"><div class="wrap">
+  <div class="sec-head"><span class="num">01</span><h2>About</h2><span class="mono">Who I am, how I work</span></div>
+  <div class="about"><div id="aboutText"></div><div class="facts" id="facts"></div></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="sec-head"><span class="num">02</span><h2>Skills</h2><span class="mono">Tools and techniques I have used in real builds</span></div>
+  <div class="skills" id="skillGrid"></div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <div class="sec-head"><span class="num">03</span><h2>Experience</h2><span class="mono">Jobs · internships · research</span></div>
+  <div class="timeline" id="timeline"></div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="sec-head"><span class="num">04</span><h2>Projects</h2><span class="mono">Problem → approach → result</span></div>
+  <div class="filters" id="projFilters" role="group" aria-label="Filter projects"></div>
+  <div class="projects" id="projGrid"></div>
+</div></section>
+
+<section id="logbook"><div class="wrap">
+  <div class="sec-head"><span class="num">05</span><h2>Activity logbook</h2><span class="mono">Everything I take part in, newest first</span></div>
+  <div class="filters" id="logFilters" role="group" aria-label="Filter activities"></div>
+  <div class="log-wrap"><table class="log"><thead><tr><th>Date</th><th>Type</th><th>Activity</th><th>Result / role</th></tr></thead><tbody id="logBody"></tbody></table></div>
+</div></section>
+
+<section id="awards"><div class="wrap">
+  <div class="sec-head"><span class="num">06</span><h2>Achievements &amp; certifications</h2></div>
+  <div class="two">
+    <div><p class="mono" style="margin-bottom:10px">Awards &amp; honours</p><div class="list" id="awardList"></div></div>
+    <div><p class="mono" style="margin-bottom:10px">Certifications</p><div class="list" id="certList"></div></div>
+  </div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <div class="sec-head"><span class="num">07</span><h2>Education &amp; write-ups</h2></div>
+  <div class="two">
+    <div><p class="mono" style="margin-bottom:10px">Education</p><div class="list" id="eduList"></div></div>
+    <div><p class="mono" style="margin-bottom:10px">Technical write-ups</p><div class="list" id="pubList"></div></div>
+  </div>
+</div></section>
+
+<section id="beyond"><div class="wrap">
+  <div class="sec-head"><span class="num">08</span><h2>Beyond engineering</h2><span class="mono">Sport &amp; strategy</span></div>
+  <div class="beyond" id="beyondGrid"></div>
+</div></section>
+
+<section id="now"><div class="wrap">
+  <div class="sec-head"><span class="num">09</span><h2>Now</h2><span class="mono" id="nowDate"></span></div>
+  <div class="now" id="nowGrid"></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <div>
+      <h2>Let's build something.</h2>
+      <p id="contactNote"></p>
+      <div class="social" id="social"></div>
+    </div>
+    <div style="display:grid;gap:14px">
+      <span class="mono" style="color:inherit;opacity:.7">Email</span>
+      <span class="mail" id="mail"></span>
+      <div class="cta"><button class="btn primary" id="copyBtn" type="button">Copy email</button><a class="btn" id="mailBtn" href="#">Open mail app</a></div>
+      <div id="phoneBlock" style="display:grid;gap:14px;margin-top:10px">
+        <span class="mono" style="color:inherit;opacity:.7">Mobile</span>
+        <span class="mail" id="phone"></span>
+        <div class="cta"><button class="btn primary" id="copyPhone" type="button">Copy number</button><a class="btn" id="callBtn" href="#">Call</a></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer"><img id="lbImg" alt=""><div class="cap" id="lbCap"></div><div class="row"><button type="button" id="lbPrev">← Prev</button><button type="button" id="lbNext">Next →</button><button type="button" id="lbClose">Close ✕</button></div></div>
+<div class="wrap"><footer><span id="foot"></span><span id="updated"></span></footer></div>
+
+<script>
+/* =====================================================================
+   EDIT EVERYTHING HERE. All page content comes from this one object.
+   Add / remove items freely — the page re-renders from it.
+   ===================================================================== */
+const DATA = {
+  showSampleBanner: false,
+  name: "Andile Tafuma Dube",
+  initials: "ATD.",
+  photo: "images/andile.jpg",
+  role: "Electronics & Communication Engineering student · Embedded Systems & Hardware Design",
+  thesis: "I design embedded hardware from the schematic up: custom ESP32 and STM32 boards, sensor systems and long-range wireless links, built around real problems like disaster communication, public health and tremor rehabilitation.",
+  status: "Open to internships",
+  discipline: "B.E., Electronics & Communication Engineering",
+  educationShort: "KPR Institute of Engineering and Technology · 2024–2028",
+  location: "Coimbatore, Tamil Nadu, India",
+  focus: "Embedded · PCB design · IoT · Robotics",
+  resumeUrl: "",          // add a link to your PDF résumé to show the button
+  lastUpdated: "November 2026",
+  stats: [ {n:"12", l:"Projects built"}, {n:"3", l:"Internships"}, {n:"11", l:"Certifications"} ],
+
+  about: [
+    "I'm a pre-final-year Electronics and Communication Engineering student at KPR Institute of Engineering and Technology, specialising in embedded systems and IoT-based intelligent hardware.",
+    "I like taking a concept all the way to a working prototype: picking the microcontroller and sensors, designing the PCB, writing the firmware, then testing and debugging until it behaves. Lately I've moved from building around development boards to designing the hardware platform itself, such as my custom ESP32-S3 board in KiCad.",
+    "As a technical member of the Aviation & Robotics Club (ARC) at KPRIET, I build robots and control boards with my team. I've also done research on closed-loop TENS for tremor rehabilitation at Osmania University. I'm growing my interest in robotics, smart devices and embedded intelligence, and I'm looking for internships where I can contribute to real hardware."
+  ],
+  facts: [
+    ["Year","Pre-final year (batch of 2028)"],
+    ["Based in","Coimbatore, Tamil Nadu"],
+    ["Club","Aviation & Robotics Club, KPRIET"],
+    ["Aiming for","Embedded Systems Engineer"]
+  ],
+
+  skills: [
+    { group:"Embedded & firmware", items:["Embedded C","Arduino","ESP32 / ESP32-S3","STM32","Arduino Mega 2560","RTOS fundamentals","QNX real-time programming","Interrupts, timers & serial"] },
+    { group:"PCB & hardware design", items:["KiCad","EasyEDA","Altium","Schematic capture","Power regulation (LDO, buck)","USB-C design","Analog circuit design","Assembly, bring-up & debugging"] },
+    { group:"Protocols & wireless", items:["I²C","SPI","UART","USB","LoRa / LoRaWAN","Bluetooth (HC-05)","Wi-Fi IoT","GSM (SIM800L)","GPS"] },
+    { group:"Sensors & signals", items:["IMU","EMG","MLX90614 IR","MQ-135 gas","TCRT5000 IR array","Ultrasonic","RFID","Filtering & calibration"] },
+    { group:"Control, ML & tools", items:["PID control","Random Forest","Pattern recognition","Time-series analysis","MATLAB","Proteus","Fusion 360","Git & GitHub"] },
+    { group:"Professional", items:["Teamwork","Problem solving","Technical documentation","Adaptability","Continuous learning"] }
+  ],
+
+  experience: [
+    { when:"Oct 2025 – present", title:"Technical Member", org:"Aviation & Robotics Club (ARC), KPRIET · Coimbatore",
+      points:["Build electronics, robotics and applied-engineering projects with the club team, including a 16-channel PID line follower and an ESP32 robotics control board.","Take part in hands-on technical activities, workshops and team problem-solving.","Work with peers on hardware and IoT initiatives."],
+      tags:["Robotics","PCB design","Teamwork"] },
+    { when:"Jun 2026 – Jul 2026", title:"Research Intern", org:"University College of Engineering, Osmania University · Hyderabad",
+      points:["Researched closed-loop Transcutaneous Electrical Nerve Stimulation (TENS) for functional tremor rehabilitation.","Collected, filtered and extracted features from EMG and IMU data for tremor analysis.","Trained a Random Forest model for tremor detection and designed a closed-loop concept where detected tremor triggers TENS stimulation."],
+      tags:["Embedded systems","IMU","EMG","Random Forest"] },
+    { when:"Jun 2026", title:"Embedded Systems & IoT Intern", org:"Enthu Technology Solutions India Pvt Ltd · Coimbatore",
+      points:["Developed an RFID-based smart attendance system for automated identification and attendance tracking.","Interfaced soil-moisture and rain sensors for real-time environmental monitoring with automatic pump control.","Integrated I²C, SPI, UART and Bluetooth on the Thingz Kit mini board (ESP32 + LoRaWAN).","Assembled, tested, debugged and validated embedded hardware and software with the project team."],
+      tags:["ESP32","LoRaWAN","RFID","I²C / SPI / UART"] },
+    { when:"Dec 2025 – Jan 2026", title:"PCB Design & IoT Intern", org:"KPR Institute of Engineering and Technology · Coimbatore",
+      points:["Worked on embedded and IoT hardware projects with microcontrollers, sensors and firmware.","Did circuit design, debugging and system integration.","Followed real engineering workflows, including documentation."],
+      tags:["PCB design","IoT","Firmware"] }
+  ],
+
+  projectCategories: ["PCB & Hardware","Robotics","Embedded & IoT","Research & ML"],
+  projects: [
+    { title:"Custom ESP32-S3 Embedded Platform", cat:"PCB & Hardware", year:"2026", status:"In progress",
+      imgs:[["images/esp32s3-board.jpg","ESP32-S3 board in KiCad: 3D view, PCB layout with antenna keep-out zone, and schematic"]],
+      problem:"Development boards limit how compact and purpose-built a product can be.",
+      approach:"Designed a standalone board in KiCad around the ESP32-S3-WROOM-1: USB-C power and native USB programming, 5 V → 3.3 V LDO regulation, EN/BOOT circuitry, USB D+/D− routing with series termination, CC pull-downs, decoupling, status LEDs and GPIO expansion, with attention to grounding and antenna clearance.",
+      outcome:"Schematic and PCB layout complete. Next: fabrication, assembly, bring-up and electrical validation.",
+      stack:["KiCad","ESP32-S3","USB-C","LDO"], links:[["LinkedIn post","https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/"]] },
+    { title:"ESP32 Robotics Control Board", cat:"PCB & Hardware", year:"2026", status:"Built",
+      imgs:[["images/robot-control-board.jpg","The assembled ESP32 robotics control board: motor driver, buck converter, OLED and push buttons"]],
+      problem:"Every new club robot meant rewiring the same motor driver, display and power circuits.",
+      approach:"Designed and built one reusable board: ESP32, TB6612FNG motor driver, 0.96″ OLED, 6 programmable buttons, on-board DC-DC buck converter and an expansion header for sensors.",
+      outcome:"Working board that serves as a base for line-follower, maze-solver, obstacle-avoidance and navigation robots.",
+      stack:["EasyEDA","ESP32","TB6612FNG","OLED"], links:[["LinkedIn post","https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/"]] },
+    { title:"RODIX: 16-Channel PID Line-Following Robot", cat:"Robotics", year:"2026", status:"Built",
+      imgs:[["images/rodix-robot.jpg","RODIX line-following robot: curved 16-sensor array board on top of the control board"],["images/rodix-annotated.jpg","RODIX annotated: sensor board, ribbon interconnect, prototyping board, OLED and drive wheels"]],
+      problem:"Competition line followers need precise tracking at speed on sharp curves.",
+      approach:"16-sensor TCRT5000 array read through a multiplexer, with sensor calibration and PID control of the motors. PCB designed in EasyEDA; chassis modelled and assembled in Fusion 360.",
+      outcome:"Real-time line tracking and motor control, built with the Aviation & Robotics Club.",
+      stack:["PID","TCRT5000","Multiplexer","EasyEDA","Fusion 360"], links:[] },
+    { title:"Penetrative Communication System (LoRa SOS)", cat:"Embedded & IoT", year:"2025", status:"Built",
+      problem:"Remote, hilly and disaster-hit areas often lose GSM/4G coverage, and satellite phones are expensive.",
+      approach:"Portable SOS unit (ESP32, SX1278 LoRa, NEO-6M GPS, Li-ion + TP4056) sends location packets to a base station (ESP32 + LoRa + SIM800L) that forwards SMS alerts to responders.",
+      outcome:"SOS transmitted over 1+ km in open terrain with CRC-validated packets; SMS alerts delivered within seconds. Total cost about ₹3,000–3,500.",
+      stack:["ESP32","LoRa SX1278","GPS","SIM800L","C++"], links:[["Code","https://github.com/dubea313-collab/PENETRATIVE-COMMUNICATION-SYSTEM"]] },
+    { title:"Closed-Loop TENS for Tremor Rehabilitation", cat:"Research & ML", year:"2026", status:"Research",
+      imgs:[["images/osmania-nextgen.jpg","KPRIET NextGen Internship announcement: research at Osmania University, Hyderabad, June–July 2026"]],
+      problem:"Functional tremor therapy is usually open-loop, stimulating whether or not tremor is present.",
+      approach:"Collected, filtered and extracted features from EMG and IMU data, then trained a Random Forest model to detect tremor.",
+      outcome:"A closed-loop design in which detected tremor triggers TENS stimulation. Research internship at Osmania University.",
+      stack:["EMG","IMU","Random Forest","Signal processing"], links:[] },
+    { title:"Predictive Maintenance & Machine Fault Detection", cat:"Research & ML", year:"2026", status:"Simulated",
+      problem:"Machines are often repaired only after they fail.",
+      approach:"Embedded prototype on Arduino Mega 2560, simulated in Proteus. Processed normal, degrading and near-failure data with machine learning and time-series analysis.",
+      outcome:"Normal / Warning / Critical classification with maintenance alerts, plus the parameters that drive failures.",
+      stack:["Arduino Mega","Proteus","ML","Time series"], links:[] },
+    { title:"RFID Attendance & Smart Irrigation Nodes", cat:"Embedded & IoT", year:"2026", status:"Built",
+      problem:"Manual attendance and fixed-schedule watering waste time and water.",
+      approach:"On the Thingz Kit mini board (ESP32 + LoRaWAN): RFID-based attendance, plus soil-moisture and rain sensors driving a pump, with Bluetooth monitoring.",
+      outcome:"Working prototypes built during my internship at Enthu Technology Solutions.",
+      stack:["ESP32","LoRaWAN","RFID","Bluetooth"], links:[] },
+    { title:"Smart Health Guard", cat:"Embedded & IoT", year:"2024", status:"Built",
+      problem:"Shared sanitizer dispensers and temperature checks need physical contact.",
+      approach:"MLX90614 IR sensor reads temperature; an Arduino Uno checks the threshold and drives a relay-controlled pump with external power isolation.",
+      outcome:"Working, fully contactless prototype for temperature screening and sanitizing.",
+      stack:["Arduino Uno","MLX90614","Relay","C++"], links:[["Code","https://github.com/dubea313-collab/Smart-Health-Guard"]] },
+    { title:"Indoor Air Quality Monitoring System", cat:"Embedded & IoT", year:"2025", status:"Built",
+      problem:"Indoor air pollution goes unnoticed without measurement.",
+      approach:"MQ-135 gas sensor read by an ESP32/Arduino, with smoothing, thresholds for alerts, and Wi-Fi transmission to an IoT platform.",
+      outcome:"Working IoT prototype with real-time remote monitoring.",
+      stack:["ESP32","MQ-135","Wi-Fi","C++"], links:[["Code","https://github.com/dubea313-collab/INDOOR-AIR-QUALITY-MONITORING-SYSTEM"]] },
+    { title:"Embedded Mini-Project Series", cat:"Embedded & IoT", year:"2025", status:"Built",
+      imgs:[["images/mini-projects.jpg","Breadboard prototype: Arduino Uno with HC-SR04 ultrasonic sensor, LEDs and sanitizer pump"]],
+      problem:"I wanted hands-on practice with sensing, actuation and microcontroller interfacing.",
+      approach:"Built four prototypes: Bluetooth (HC-05) fan & light control with a mobile app, an HC-SR04 ultrasonic distance meter with an LCD, an MQ-135 air-quality alarm, and the non-contact sanitizer.",
+      outcome:"Four working prototypes covering interrupts, timing, serial communication, I²C LCDs and relay/transistor drivers.",
+      stack:["Arduino","HC-05","HC-SR04","LCD"], links:[["LinkedIn post","https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/"]] },
+    { title:"Water Level Detector (555 Timer)", cat:"PCB & Hardware", year:"2025", status:"Built",
+      problem:"Tanks overflow when nobody notices the water level.",
+      approach:"NE555 timer with conductive probes: water changes the trigger voltage and switches an LED or buzzer, with no microcontroller.",
+      outcome:"Low-cost working analog prototype.",
+      stack:["NE555","Analog"], links:[["Code","https://github.com/dubea313-collab/WATER-LEVEL-DETECTOR-555"]] },
+    { title:"AI Tutor for the Visually Impaired", cat:"Research & ML", year:"2025", status:"Concept",
+      problem:"Most learning tools assume the user can see a screen.",
+      approach:"Voice-in, audio-out assistive tutor on embedded hardware (microphone, speaker, ESP32 / Raspberry Pi), designed for hands-free use.",
+      outcome:"Documented system design. No hardware prototype yet.",
+      stack:["ESP32 / Raspberry Pi","Audio I/O","Python"], links:[["Code","https://github.com/dubea313-collab/AI-TUTOR-FOR-THE-VISUALLY-IMPARED"]] }
+  ],
+
+  logTypes: { Internship:"#1f45e0", Build:"#1b8a5a", Course:"#2f6f8a", Competition:"#b4530a", Club:"#8a2bb4" },
+  logbook: [
+    { date:"2026-11", type:"Course", what:"Microelectronics: Devices to Circuits (NPTEL)", result:"Certified" },
+    { date:"2026-10", type:"Build", what:"Predictive maintenance & machine fault detection system", result:"Simulated in Proteus with ML alerts" },
+    { date:"2026-09", type:"Build", what:"Finished the schematic and PCB layout for my custom ESP32-S3 board in KiCad", result:"Layout done · fabrication next" },
+    { date:"2026-08", type:"Build", what:"Designed and built the ESP32 Robotics Control Board", result:"Working board" },
+    { date:"2026-08", type:"Course", what:"Realtime Programming for the QNX Operating System (QNX)", result:"Certified" },
+    { date:"2026-08", type:"Course", what:"Artificial Intelligence for Communication Systems (Universiti Tun Hussein Onn Malaysia)", result:"Certified" },
+    { date:"2026-06", type:"Internship", what:"Research internship: closed-loop TENS for tremor, Osmania University, Hyderabad", result:"Research Intern · Jun–Jul" },
+    { date:"2026-06", type:"Internship", what:"Embedded Systems & IoT internship, Enthu Technology Solutions", result:"Intern · RFID & IoT builds" },
+    { date:"2026-05", type:"Build", what:"Finished design of the 16-array line-follower robot (EasyEDA PCB + Fusion 360 CAD)", result:"Design phase complete" },
+    { date:"2026-05", type:"Course", what:"Introduction to Industry 4.0 and Industrial IoT (NPTEL)", result:"Certified" },
+    { date:"2025-12", type:"Internship", what:"PCB Design & IoT internship, KPRIET", result:"Intern · Dec–Jan" },
+    { date:"2025-12", type:"Course", what:"Introduction to IoT and Embedded Systems (UC Irvine, Coursera)", result:"Certified" },
+    { date:"2025-12", type:"Build", what:"Embedded mini-project series: Bluetooth automation, ultrasonic ranging, air quality, contactless sanitizer", result:"4 working prototypes" },
+    { date:"2025-10", type:"Club", what:"Joined the Aviation & Robotics Club (ARC), KPRIET", result:"Technical Member" },
+    { date:"2025-10", type:"Course", what:"Pattern Recognition and Applications (NPTEL)", result:"Certified" },
+    { date:"2025-10", type:"Course", what:"Remote Sensing & Digital Image Analysis (IIRS, ISRO)", result:"Certified" },
+    { date:"2025-07", type:"Course", what:"AI For All (Intel & Digital India Corporation)", result:"Certified" },
+    { date:"2025-02", type:"Competition", what:"STEM Innovators Expo 2025, KPRIET: earthquake alarm project", result:"Winner · Certificate of Merit" },
+    { date:"2025", type:"Course", what:"Cyber Smart certification", result:"Certified" },
+    { date:"2025", type:"Course", what:"MATLAB course: simulations and data processing", result:"Completed" },
+    { date:"2025", type:"Course", what:"Nature-based Solutions for Disaster & Climate Resilience (SDG Academy, edX)", result:"Completed" },
+    { date:"2024-10", type:"Competition", what:"Integration Bee at the 12th national-level techfest, Amrita Vishwa Vidyapeetham", result:"Participant" }
+  ],
+
+  awards: [
+    { title:"Winner, STEM Innovators Expo 2025", sub:"Earthquake alarm project · Certificate of Merit, KPRIET, 27 Feb 2025", yr:"2025", img:"images/stem-expo-2025.jpg" },
+    { title:"Participant, Integration Bee", sub:"12th national-level techfest, Amrita Vishwa Vidyapeetham", yr:"2024" }
+  ],
+  certs: [
+    { title:"Microelectronics: Devices to Circuits", sub:"NPTEL", yr:"2026" },
+    { title:"AI for Communication Systems", sub:"Universiti Tun Hussein Onn Malaysia", yr:"2026" },
+    { title:"Realtime Programming for QNX OS", sub:"QNX", yr:"2026" },
+    { title:"Industry 4.0 and Industrial IoT", sub:"NPTEL", yr:"2026" },
+    { title:"Intro to IoT and Embedded Systems", sub:"UC Irvine · Coursera", yr:"2025" },
+    { title:"Pattern Recognition and Applications", sub:"NPTEL", yr:"2025" },
+    { title:"Remote Sensing & Digital Image Analysis", sub:"IIRS, ISRO", yr:"2025" },
+    { title:"AI For All", sub:"Intel · Digital India Corporation", yr:"2025" },
+    { title:"Cyber Smart", sub:"Certification", yr:"2025" },
+    { title:"MATLAB", sub:"Course completion", yr:"2025" },
+    { title:"Nature-based Solutions for Disaster Resilience", sub:"SDG Academy · edX", yr:"2025" }
+  ],
+  education: [
+    { title:"B.E., Electronics & Communication Engineering", sub:"KPR Institute of Engineering and Technology, Coimbatore", yr:"2024–28" }
+  ],
+  publications: [
+    { title:"From development board to custom embedded hardware: ESP32-S3 PCB design", sub:"LinkedIn post · 2,100+ impressions", yr:"2026" },
+    { title:"Designing & building a custom robotics control board", sub:"LinkedIn post · 12,000+ impressions", yr:"2026" },
+    { title:"A week of embedded mini projects: sensing, actuation & interfacing", sub:"LinkedIn post", yr:"2025" }
+  ],
+  publicationsLink: "https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/",
+
+  beyond: [
+    { k:"Volleyball", title:"KPRIET college volleyball team", img:"images/volleyball-team.jpg",
+      text:"I play for my college volleyball team. Training and competing with the squad keeps me disciplined and has taught me a lot about communication and trust under pressure.",
+      tags:["Team sport","KPRIET"] },
+    { k:"Chess", title:"Chess player",
+      text:"Chess is where I practise thinking several moves ahead, staying patient and spotting patterns. Those habits carry straight into debugging hardware.",
+      tags:["Strategy","Pattern recognition"] }
+  ],
+
+  now: [
+    { k:"Building", v:"Fabricating, assembling and bringing up my custom ESP32-S3 board." },
+    { k:"Learning", v:"Real-time systems (QNX, RTOS) and analog microelectronics." },
+    { k:"With the club", v:"Robots on the ARC control board: line followers, maze solvers and more." },
+    { k:"Looking for", v:"Embedded systems and hardware design internships." }
+  ],
+
+  email: "dubea313@gmail.com",
+  phone: "+91 63854 13978",
+  contactNote: "I'm open to internships and collaboration on embedded, IoT and robotics projects. Email or call me.",
+  social: [ ["GitHub","https://github.com/dubea313-collab"], ["LinkedIn","https://www.linkedin.com/in/andile-tafuma-dube-563552330"] ]
+};
+
+/* ============================ rendering ============================ */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const LV = ["", "Learning","Working","Strong","Expert"];
+
+function render(){
+  const D = DATA;
+  document.title = D.name + " — Portfolio";
+  $("sampleBanner").hidden = !D.showSampleBanner;
+  $("logo").textContent = D.initials;
+  $("navlinks").innerHTML = [["about","About"],["skills","Skills"],["experience","Experience"],["projects","Projects"],["logbook","Logbook"],["awards","Awards"],["education","Education"],["beyond","Beyond"],["contact","Contact"]]
+    .map(([h,t])=>`<a href="#${h}">${t}</a>`).join("");
+  $("status").querySelector("span").textContent = D.status;
+  $("name").textContent = D.name;
+  $("photo").src = D.photo; $("photo").alt = "Portrait of " + D.name; $("photoCap").textContent = "FIG. 1 · " + D.name;
+  $("role").textContent = D.role;
+  $("thesis").textContent = D.thesis;
+  if(D.resumeUrl){ $("resumeBtn").href = D.resumeUrl; } else { $("resumeBtn").remove(); }
+  $("tb-disc").textContent = D.discipline;
+  $("tb-edu").textContent = D.educationShort;
+  $("tb-loc").textContent = D.location;
+  $("tb-focus").textContent = D.focus;
+  $("dwg").textContent = "SHEET 1 OF 1 · REV " + D.lastUpdated.toUpperCase();
+  $("stats").innerHTML = D.stats.map(s=>`<div><b>${esc(s.n)}</b><span class="mono">${esc(s.l)}</span></div>`).join("");
+
+  $("aboutText").innerHTML = D.about.map((p,i)=>`<p class="${i===0?'lead':''}">${esc(p)}</p>`).join("");
+  $("facts").innerHTML = D.facts.map(([a,b])=>`<div><span>${esc(a)}</span><span>${esc(b)}</span></div>`).join("");
+
+  $("skillGrid").innerHTML = D.skills.map(g=>`<div class="card"><h3>${esc(g.group)}</h3><div class="chips">${
+    g.items.map(n=>`<span class="chip sk">${esc(n)}</span>`).join("")}</div></div>`).join("");
+
+  $("timeline").innerHTML = D.experience.map(e=>`<div class="tl"><div class="when">${esc(e.when)}</div>
+    <h3>${esc(e.title)} <span class="org">· ${esc(e.org)}</span></h3>
+    <ul>${e.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>
+    <div class="chips" style="margin-top:10px">${e.tags.map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div></div>`).join("");
+
+  makeFilter("projFilters", ["All",...D.projectCategories], drawProjects);
+  drawProjects("All");
+  makeFilter("logFilters", ["All",...Object.keys(D.logTypes)], drawLog);
+  drawLog("All");
+
+  const list = arr => arr.map(x=>x.img
+    ? `<div class="li withimg"><img class="thumbi" src="${esc(x.img)}" alt="${esc(x.title)}" data-lb='${esc(JSON.stringify([[x.img,x.title]]))}' tabindex="0"><strong>${esc(x.title)}</strong><span class="yr">${esc(x.yr)}</span><span class="sub">${esc(x.sub)}</span></div>`
+    : `<div class="li"><strong>${esc(x.title)}</strong><span class="yr">${esc(x.yr)}</span><span class="sub">${esc(x.sub)}</span></div>`).join("");
+  $("beyondGrid").innerHTML = D.beyond.map(b=>`<div class="card"><span class="mono">${esc(b.k)}</span><h3>${esc(b.title)}</h3>${b.img?`<img src="${esc(b.img)}" alt="${esc(b.title)}" data-lb='${esc(JSON.stringify([[b.img,b.title]]))}' tabindex="0">`:""}<p>${esc(b.text)}</p>${b.tags?`<div class="chips">${b.tags.map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div>`:""}</div>`).join("");
+  $("awardList").innerHTML = list(D.awards);
+  $("certList").innerHTML = list(D.certs);
+  $("eduList").innerHTML = list(D.education);
+  $("pubList").innerHTML = list(D.publications) + (D.publicationsLink?`<div class="li"><a href="${esc(D.publicationsLink)}" target="_blank" rel="noopener">Read all posts on LinkedIn ↗</a></div>`:"");
+
+  $("nowDate").textContent = "Updated " + D.lastUpdated;
+  $("nowGrid").innerHTML = D.now.map(n=>`<div class="card"><span class="mono">${esc(n.k)}</span><p>${esc(n.v)}</p></div>`).join("");
+
+  $("contactNote").textContent = D.contactNote;
+  $("mail").textContent = D.email;
+  $("mailBtn").href = "mailto:" + D.email;
+  if(D.phone){ $("phone").textContent = D.phone; $("callBtn").href = "tel:" + D.phone.replace(/\s+/g,""); } else { $("phoneBlock").remove(); }
+  $("social").innerHTML = D.social.map(([n,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)} ↗</a>`).join("");
+  $("foot").textContent = "© " + new Date().getFullYear() + " " + D.name;
+  $("updated").textContent = "Last updated " + D.lastUpdated;
+}
+
+function makeFilter(id, opts, fn){
+  const el = $(id);
+  el.innerHTML = opts.map((o,i)=>`<button type="button" id="${id}-${i}" aria-pressed="${i===0}">${esc(o)}</button>`).join("");
+  el.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+    el.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"));
+    b.setAttribute("aria-pressed","true"); fn(b.textContent);
+  }));
+}
+function drawProjects(cat){
+  $("projGrid").innerHTML = DATA.projects.filter(p=>cat==="All"||p.cat===cat).map(p=>`<article class="proj">
+    ${p.imgs&&p.imgs.length
+      ? `<button type="button" class="ph" aria-label="View photos of ${esc(p.title)}" data-lb='${esc(JSON.stringify(p.imgs))}'><img src="${esc(p.imgs[0][0])}" alt="${esc(p.imgs[0][1])}" loading="lazy"><span class="tag">${esc(p.cat)}</span><span class="st st-${p.status.toLowerCase().replace(/\s+/g,'-')}">${esc(p.status)} · ${esc(p.year)}</span>${p.imgs.length>1?`<span class="more">${p.imgs.length} photos</span>`:""}</button>`
+      : `<div class="thumb"><span class="tag">${esc(p.cat)}</span><span class="st st-${p.status.toLowerCase().replace(/\s+/g,'-')}">${esc(p.status)} · ${esc(p.year)}</span></div>`}
+    <div class="body"><h3>${esc(p.title)}</h3>
+      <div class="prs"><div><b>Problem</b>${esc(p.problem)}</div><div><b>Approach</b>${esc(p.approach)}</div></div>
+      <div class="outcome">${esc(p.outcome)}</div>
+      <div class="chips">${p.stack.map(s=>`<span class="chip">${esc(s)}</span>`).join("")}</div></div>
+    ${p.links.length?`<div class="foot">${p.links.map(([t,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} ↗</a>`).join("")}</div>`:""}
+  </article>`).join("");
+}
+function drawLog(type){
+  const fmt = d => { const [y,m]=d.split("-"); return m ? new Date(y,m-1).toLocaleString("en-IN",{month:"short",year:"numeric"}) : y; };
+  $("logBody").innerHTML = [...DATA.logbook].sort((a,b)=>b.date.localeCompare(a.date))
+    .filter(r=>type==="All"||r.type===type)
+    .map(r=>`<tr><td>${fmt(r.date)}</td><td><span class="type" style="color:${DATA.logTypes[r.type]||'inherit'}">${esc(r.type)}</span></td><td>${esc(r.what)}</td><td class="res">${esc(r.result)}</td></tr>`).join("")
+    || `<tr><td colspan="4">No entries of this type yet.</td></tr>`;
+}
+
+$("copyBtn").addEventListener("click", async ()=>{
+  try{ await navigator.clipboard.writeText(DATA.email); $("copyBtn").textContent="Copied ✓"; }
+  catch(e){ $("copyBtn").textContent="Select the address to copy"; }
+  setTimeout(()=>$("copyBtn").textContent="Copy email",2000);
+});
+$("copyPhone").addEventListener("click", async ()=>{
+  try{ await navigator.clipboard.writeText(DATA.phone.replace(/\s+/g,"")); $("copyPhone").textContent="Copied ✓"; }
+  catch(e){ $("copyPhone").textContent="Select the number to copy"; }
+  setTimeout(()=>$("copyPhone").textContent="Copy number",2000);
+});
+$("themeBtn").addEventListener("click", ()=>{
+  const r=document.documentElement;
+  const dark = r.dataset.theme ? r.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
+});
+let LB=[],LBi=0;
+function lbShow(){ const [src,cap]=LB[LBi]; $("lbImg").src=src; $("lbImg").alt=cap; $("lbCap").textContent=cap+(LB.length>1?`  (${LBi+1}/${LB.length})`:""); $("lbPrev").hidden=$("lbNext").hidden=LB.length<2; }
+function lbOpen(list){ LB=list; LBi=0; lbShow(); $("lb").classList.add("open"); $("lbClose").focus(); }
+function lbClose(){ $("lb").classList.remove("open"); }
+document.addEventListener("click",e=>{ const t=e.target.closest("[data-lb]"); if(t){ lbOpen(JSON.parse(t.dataset.lb)); } });
+document.addEventListener("keydown",e=>{ const t=e.target.closest&&e.target.closest("[data-lb]"); if(t&&e.key==="Enter"&&t.tagName!=="BUTTON"){ lbOpen(JSON.parse(t.dataset.lb)); }
+  if(!$("lb").classList.contains("open")) return;
+  if(e.key==="Escape") lbClose(); if(e.key==="ArrowRight"){LBi=(LBi+1)%LB.length;lbShow();} if(e.key==="ArrowLeft"){LBi=(LBi-1+LB.length)%LB.length;lbShow();} });
+$("lbClose").addEventListener("click",lbClose);
+$("lbNext").addEventListener("click",()=>{LBi=(LBi+1)%LB.length;lbShow();});
+$("lbPrev").addEventListener("click",()=>{LBi=(LBi-1+LB.length)%LB.length;lbShow();});
+$("lb").addEventListener("click",e=>{ if(e.target.id==="lb") lbClose(); });
+render();
+</script>
+</body>
+</html>
