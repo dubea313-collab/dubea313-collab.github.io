@@ -241,7 +241,7 @@ footer{padding:28px 0 48px;font:12px var(--mono);color:var(--muted);display:flex
         </div>
         <div class="cta">
           <a class="btn primary" href="#projects">View projects →</a>
-          <a class="btn" id="resumeBtn" href="#">Download résumé</a>
+          <a class="btn" id="resumeBtn" href="#" target="_blank" rel="noopener">View CV (PDF)</a>
           <a class="btn" href="#contact">Contact</a>
         </div>
       </div>
@@ -340,109 +340,119 @@ const DATA = {
   name: "Andile Tafuma Dube",
   initials: "ATD.",
   photo: "images/andile.jpg",
-  role: "Electronics & Communication Engineering student · Embedded Systems & Hardware Design",
-  thesis: "I design embedded hardware from the schematic up: custom ESP32 and STM32 boards, sensor systems and long-range wireless links, built around real problems like disaster communication, public health and tremor rehabilitation.",
+  role: "Electronics & Communication Engineering · Embedded Systems · IoT & Edge AI · Robotics",
+  thesis: "I take hardware from schematic to working prototype: custom ESP32 boards, biomedical sensing, robots and long-range wireless links, built around real problems like disaster communication, public health and tremor rehabilitation.",
   status: "Open to internships",
-  discipline: "B.E., Electronics & Communication Engineering",
-  educationShort: "KPR Institute of Engineering and Technology · 2024–2028",
-  location: "Coimbatore, Tamil Nadu, India",
-  focus: "Embedded · PCB design · IoT · Robotics",
-  resumeUrl: "",          // add a link to your PDF résumé to show the button
+  discipline: "B.E., ECE (Honors in IoT for Smart Systems)",
+  educationShort: "KPR Institute of Engineering and Technology · 2024–2028 · CGPA 8.65",
+  location: "Coimbatore, India",
+  focus: "Embedded · IoT & Edge AI · PCB design · Robotics",
+  resumeUrl: "Andile_Tafuma_Dube_CV.pdf",
   lastUpdated: "November 2026",
-  stats: [ {n:"12", l:"Projects built"}, {n:"3", l:"Internships"}, {n:"11", l:"Certifications"} ],
+  stats: [ {n:"14", l:"Projects built"}, {n:"3", l:"Internships"}, {n:"11", l:"Certifications"} ],
 
   about: [
-    "I'm a pre-final-year Electronics and Communication Engineering student at KPR Institute of Engineering and Technology, specialising in embedded systems and IoT-based intelligent hardware.",
-    "I like taking a concept all the way to a working prototype: picking the microcontroller and sensors, designing the PCB, writing the firmware, then testing and debugging until it behaves. Lately I've moved from building around development boards to designing the hardware platform itself, such as my custom ESP32-S3 board in KiCad.",
-    "As a technical member of the Aviation & Robotics Club (ARC) at KPRIET, I build robots and control boards with my team. I've also done research on closed-loop TENS for tremor rehabilitation at Osmania University. I'm growing my interest in robotics, smart devices and embedded intelligence, and I'm looking for internships where I can contribute to real hardware."
+    "I'm an Electronics and Communication Engineering undergraduate at KPR Institute of Engineering and Technology, studying with Honors in IoT for Smart Systems, with research and industry internship experience in embedded systems, IoT, biomedical sensing and PCB design.",
+    "I like taking hardware from schematic to working prototype, from custom ESP32 boards to a SpO2 monitor and a PID line-following robot, and I apply lightweight machine learning on embedded platforms. Lately I've moved from building around development boards to designing the hardware platform itself, such as my custom ESP32-S3 board in KiCad.",
+    "I'm especially interested in automotive electronics: in-vehicle systems, sensors and embedded software. I'm looking for an internship where I can gain industry experience building safe, efficient embedded systems."
   ],
   facts: [
     ["Year","Pre-final year (batch of 2028)"],
-    ["Based in","Coimbatore, Tamil Nadu"],
+    ["CGPA","8.65 / 10"],
+    ["Languages","English (fluent), German (good command)"],
     ["Club","Aviation & Robotics Club, KPRIET"],
-    ["Aiming for","Embedded Systems Engineer"]
+    ["Interested in","Automotive electronics"]
   ],
 
   skills: [
-    { group:"Embedded & firmware", items:["Embedded C","Arduino","ESP32 / ESP32-S3","STM32","Arduino Mega 2560","RTOS fundamentals","QNX real-time programming","Interrupts, timers & serial"] },
-    { group:"PCB & hardware design", items:["KiCad","EasyEDA","Altium","Schematic capture","Power regulation (LDO, buck)","USB-C design","Analog circuit design","Assembly, bring-up & debugging"] },
-    { group:"Protocols & wireless", items:["I²C","SPI","UART","USB","LoRa / LoRaWAN","Bluetooth (HC-05)","Wi-Fi IoT","GSM (SIM800L)","GPS"] },
-    { group:"Sensors & signals", items:["IMU","EMG","MLX90614 IR","MQ-135 gas","TCRT5000 IR array","Ultrasonic","RFID","Filtering & calibration"] },
-    { group:"Control, ML & tools", items:["PID control","Random Forest","Pattern recognition","Time-series analysis","MATLAB","Proteus","Fusion 360","Git & GitHub"] },
-    { group:"Professional", items:["Teamwork","Problem solving","Technical documentation","Adaptability","Continuous learning"] }
+    { group:"Embedded & microcontrollers", items:["ESP32 / ESP32-S3","STM32","Arduino","Sensor interfacing","Data acquisition","RTOS / QNX"] },
+    { group:"Programming", items:["C / Embedded C","C++","Python"] },
+    { group:"IoT & communication", items:["IoT architectures","LoRa / LoRaWAN","I²C","SPI","UART","USB","Bluetooth","Wi-Fi","GSM","GPS"] },
+    { group:"PCB & hardware", items:["KiCad","EasyEDA","Altium","Proteus","Circuit design","Power regulation","PCB prototyping"] },
+    { group:"Control & AI", items:["PID control","Edge AI / embedded ML","Random Forest","Time-series analysis"] },
+    { group:"Engineering tools", items:["Fusion 360","MATLAB","Git & GitHub"] }
   ],
 
   experience: [
-    { when:"Oct 2025 – present", title:"Technical Member", org:"Aviation & Robotics Club (ARC), KPRIET · Coimbatore",
-      points:["Build electronics, robotics and applied-engineering projects with the club team, including a 16-channel PID line follower and an ESP32 robotics control board.","Take part in hands-on technical activities, workshops and team problem-solving.","Work with peers on hardware and IoT initiatives."],
-      tags:["Robotics","PCB design","Teamwork"] },
     { when:"Jun 2026 – Jul 2026", title:"Research Intern", org:"University College of Engineering, Osmania University · Hyderabad",
-      points:["Researched closed-loop Transcutaneous Electrical Nerve Stimulation (TENS) for functional tremor rehabilitation.","Collected, filtered and extracted features from EMG and IMU data for tremor analysis.","Trained a Random Forest model for tremor detection and designed a closed-loop concept where detected tremor triggers TENS stimulation."],
-      tags:["Embedded systems","IMU","EMG","Random Forest"] },
-    { when:"Jun 2026", title:"Embedded Systems & IoT Intern", org:"Enthu Technology Solutions India Pvt Ltd · Coimbatore",
-      points:["Developed an RFID-based smart attendance system for automated identification and attendance tracking.","Interfaced soil-moisture and rain sensors for real-time environmental monitoring with automatic pump control.","Integrated I²C, SPI, UART and Bluetooth on the Thingz Kit mini board (ESP32 + LoRaWAN).","Assembled, tested, debugged and validated embedded hardware and software with the project team."],
+      points:["Researched closed-loop Transcutaneous Electrical Nerve Stimulation (TENS) for functional tremor rehabilitation, using EMG and IMU sensing.","Collected, filtered and extracted features from sensor data, and trained a Random Forest tremor detector for the closed-loop stimulation concept."],
+      tags:["ESP32","EMG","MPU9250 IMU","Random Forest"] },
+    { when:"Jun 2026", title:"Embedded Systems & IoT Intern", org:"Enthu Technology Solutions India Pvt. Ltd. · Coimbatore",
+      points:["Developed an RFID-based smart attendance system, and interfaced soil-moisture and rain sensors for monitoring with automatic pump control.","Integrated I²C, SPI, UART and Bluetooth on the Thingz Kit mini board (ESP32 + LoRaWAN); assembled, tested and debugged the hardware with the project team."],
       tags:["ESP32","LoRaWAN","RFID","I²C / SPI / UART"] },
     { when:"Dec 2025 – Jan 2026", title:"PCB Design & IoT Intern", org:"KPR Institute of Engineering and Technology · Coimbatore",
-      points:["Worked on embedded and IoT hardware projects with microcontrollers, sensors and firmware.","Did circuit design, debugging and system integration.","Followed real engineering workflows, including documentation."],
-      tags:["PCB design","IoT","Firmware"] }
+      points:["Worked on PCB design and IoT hardware projects with microcontrollers, sensors and firmware, covering circuit design, debugging, system integration and documentation."],
+      tags:["PCB design","IoT","Firmware"] },
+    { when:"Oct 2025 – present", title:"Technical Member", org:"Aviation & Robotics Club (ARC), KPRIET · Coimbatore",
+      points:["Build club robotics and embedded projects, including the RODIX line-following robot and an ESP32 robotics control board, and mentor junior students in technical and hardware skills."],
+      tags:["Robotics","PCB design","Mentoring"] }
   ],
 
   projectCategories: ["PCB & Hardware","Robotics","Embedded & IoT","Research & ML"],
   projects: [
-    { title:"Custom ESP32-S3 Embedded Platform", cat:"PCB & Hardware", year:"2026", status:"In progress",
-      imgs:[["images/esp32s3-board.jpg","ESP32-S3 board in KiCad: 3D view, PCB layout with antenna keep-out zone, and schematic"]],
-      problem:"Development boards limit how compact and purpose-built a product can be.",
-      approach:"Designed a standalone board in KiCad around the ESP32-S3-WROOM-1: USB-C power and native USB programming, 5 V → 3.3 V LDO regulation, EN/BOOT circuitry, USB D+/D− routing with series termination, CC pull-downs, decoupling, status LEDs and GPIO expansion, with attention to grounding and antenna clearance.",
-      outcome:"Schematic and PCB layout complete. Next: fabrication, assembly, bring-up and electrical validation.",
-      stack:["KiCad","ESP32-S3","USB-C","LDO"], links:[["LinkedIn post","https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/"]] },
-    { title:"ESP32 Robotics Control Board", cat:"PCB & Hardware", year:"2026", status:"Built",
-      imgs:[["images/robot-control-board.jpg","The assembled ESP32 robotics control board: motor driver, buck converter, OLED and push buttons"]],
-      problem:"Every new club robot meant rewiring the same motor driver, display and power circuits.",
-      approach:"Designed and built one reusable board: ESP32, TB6612FNG motor driver, 0.96″ OLED, 6 programmable buttons, on-board DC-DC buck converter and an expansion header for sensors.",
-      outcome:"Working board that serves as a base for line-follower, maze-solver, obstacle-avoidance and navigation robots.",
-      stack:["EasyEDA","ESP32","TB6612FNG","OLED"], links:[["LinkedIn post","https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/"]] },
+    { title:"Closed-Loop TENS System for Functional Tremor Rehabilitation", cat:"Research & ML", year:"2026", status:"Research",
+      imgs:[["images/osmania-nextgen.jpg","KPRIET NextGen Internship announcement: research at Osmania University, Hyderabad, June–July 2026"]],
+      problem:"Functional tremor therapy is usually open-loop, stimulating whether or not tremor is present.",
+      approach:"EMG and IMU (MPU9250) data on ESP32: collected, filtered and turned into features, then a Random Forest model trained to detect tremor.",
+      outcome:"A closed-loop concept in which detected tremor triggers TENS stimulation to help suppress it. Research internship at Osmania University.",
+      stack:["ESP32","EMG","MPU9250 IMU","Signal processing","Random Forest"], links:[] },
+    { title:"Intelligent Predictive Maintenance & Machine Fault Detection", cat:"Research & ML", year:"2026", status:"Simulated",
+      problem:"Machines are often repaired only after they fail.",
+      approach:"Arduino Mega 2560 prototype simulated in Proteus, applying machine learning and time-series analysis to normal, degrading and near-failure data.",
+      outcome:"Normal / Warning / Critical classification with maintenance alerts, plus the parameters that drive failures.",
+      stack:["Arduino Mega 2560","Proteus","Time-series analysis","ML"], links:[] },
     { title:"RODIX: 16-Channel PID Line-Following Robot", cat:"Robotics", year:"2026", status:"Built",
       imgs:[["images/rodix-robot.jpg","RODIX line-following robot: curved 16-sensor array board on top of the control board"],["images/rodix-annotated.jpg","RODIX annotated: sensor board, ribbon interconnect, prototyping board, OLED and drive wheels"]],
       problem:"Competition line followers need precise tracking at speed on sharp curves.",
-      approach:"16-sensor TCRT5000 array read through a multiplexer, with sensor calibration and PID control of the motors. PCB designed in EasyEDA; chassis modelled and assembled in Fusion 360.",
+      approach:"16-sensor TCRT5000 array read through a multiplexer, with sensor calibration and PID motor control (TB6612FNG). PCB designed in EasyEDA; chassis modelled in Fusion 360.",
       outcome:"Real-time line tracking and motor control, built with the Aviation & Robotics Club.",
-      stack:["PID","TCRT5000","Multiplexer","EasyEDA","Fusion 360"], links:[] },
-    { title:"Penetrative Communication System (LoRa SOS)", cat:"Embedded & IoT", year:"2025", status:"Built",
+      stack:["ESP32","TCRT5000","Multiplexer","TB6612FNG","PID","EasyEDA","Fusion 360"], links:[] },
+    { title:"ESP32 Robotics Control Board", cat:"PCB & Hardware", year:"2026", status:"Built",
+      imgs:[["images/robot-control-board.jpg","The assembled ESP32 robotics control board: motor driver, buck converter, OLED and push buttons"]],
+      problem:"Every new club robot meant rewiring the same motor driver, display and power circuits.",
+      approach:"One reusable board: ESP32, TB6612FNG motor driver, 0.96″ OLED, 6 programmable buttons, on-board DC-DC buck converter and an expansion header for sensors.",
+      outcome:"Working base platform for line-follower, maze-solver, obstacle-avoidance and navigation robots.",
+      stack:["ESP32","TB6612FNG","OLED","Buck converter","EasyEDA"], links:[["LinkedIn post","https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/"]] },
+    { title:"Custom ESP32-S3 Development Board", cat:"PCB & Hardware", year:"2026", status:"In progress",
+      imgs:[["images/esp32s3-board.jpg","ESP32-S3 board in KiCad: 3D view, PCB layout with antenna keep-out zone, and schematic"]],
+      problem:"Development boards limit how compact and purpose-built a product can be.",
+      approach:"Standalone ESP32-S3-WROOM-1 board designed in KiCad: USB-C power and native USB, 5 V → 3.3 V LDO regulation, EN/BOOT circuitry, USB routing, decoupling, GPIO breakout, grounding and antenna clearance.",
+      outcome:"Schematic and PCB layout complete. Fabrication and hardware bring-up in progress.",
+      stack:["KiCad","ESP32-S3","USB-C","Power regulation"], links:[["LinkedIn post","https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/"]] },
+    { title:"SpO2 (Blood Oxygen) Monitoring System", cat:"PCB & Hardware", year:"", status:"Built",
+      problem:"Blood oxygen and pulse need to be measured reliably and shown in real time.",
+      approach:"Custom PCB with an ESP32 and a pulse oximetry sensor, with signal conditioning and processing to derive SpO2 readings.",
+      outcome:"Working system that measures blood oxygen saturation and pulse rate and displays results in real time on an LCD.",
+      stack:["ESP32","Pulse oximetry","PCB design","Signal processing","LCD"], links:[] },
+    { title:"LoRa Emergency SOS Communication System", cat:"Embedded & IoT", year:"2025", status:"Built",
       problem:"Remote, hilly and disaster-hit areas often lose GSM/4G coverage, and satellite phones are expensive.",
       approach:"Portable SOS unit (ESP32, SX1278 LoRa, NEO-6M GPS, Li-ion + TP4056) sends location packets to a base station (ESP32 + LoRa + SIM800L) that forwards SMS alerts to responders.",
-      outcome:"SOS transmitted over 1+ km in open terrain with CRC-validated packets; SMS alerts delivered within seconds. Total cost about ₹3,000–3,500.",
-      stack:["ESP32","LoRa SX1278","GPS","SIM800L","C++"], links:[["Code","https://github.com/dubea313-collab/PENETRATIVE-COMMUNICATION-SYSTEM"]] },
-    { title:"Closed-Loop TENS for Tremor Rehabilitation", cat:"Research & ML", year:"2026", status:"Research",
-      imgs:[["images/osmania-nextgen.jpg","KPRIET NextGen Internship announcement: research at Osmania University, Hyderabad, June–July 2026"]],
-      problem:"Functional tremor therapy is usually open-loop, stimulating whether or not tremor is present.",
-      approach:"Collected, filtered and extracted features from EMG and IMU data, then trained a Random Forest model to detect tremor.",
-      outcome:"A closed-loop design in which detected tremor triggers TENS stimulation. Research internship at Osmania University.",
-      stack:["EMG","IMU","Random Forest","Signal processing"], links:[] },
-    { title:"Predictive Maintenance & Machine Fault Detection", cat:"Research & ML", year:"2026", status:"Simulated",
-      problem:"Machines are often repaired only after they fail.",
-      approach:"Embedded prototype on Arduino Mega 2560, simulated in Proteus. Processed normal, degrading and near-failure data with machine learning and time-series analysis.",
-      outcome:"Normal / Warning / Critical classification with maintenance alerts, plus the parameters that drive failures.",
-      stack:["Arduino Mega","Proteus","ML","Time series"], links:[] },
+      outcome:"1+ km transmission in open terrain with CRC-validated packets; SMS alerts delivered within seconds. Total cost about ₹3,000–3,500.",
+      stack:["ESP32","SX1278 LoRa","NEO-6M GPS","SIM800L GSM","C++"], links:[["Code","https://github.com/dubea313-collab/PENETRATIVE-COMMUNICATION-SYSTEM"]] },
+    { title:"Smart Health Guard: Non-Contact Temperature & Automatic Sanitization", cat:"Embedded & IoT", year:"2024", status:"Built",
+      problem:"Shared sanitizer dispensers and temperature checks need physical contact.",
+      approach:"MLX90614 IR sensor reads body temperature; an Arduino Uno checks the threshold and drives a relay-controlled pump with external power isolation.",
+      outcome:"Working, fully contactless prototype for temperature screening and sanitizing.",
+      stack:["Arduino Uno","MLX90614","Relay","DC pump","C++"], links:[["Code","https://github.com/dubea313-collab/Smart-Health-Guard"]] },
+    { title:"Indoor Air Quality Monitoring System", cat:"Embedded & IoT", year:"2025", status:"Built",
+      problem:"Indoor air pollution goes unnoticed without measurement.",
+      approach:"MQ-135 gas sensor read by an ESP32, with signal smoothing and threshold-based alerts.",
+      outcome:"Real-time monitor with local LCD and buzzer alerts plus Wi-Fi transmission to an IoT platform for remote monitoring.",
+      stack:["ESP32","MQ-135","LCD","Buzzer","Wi-Fi"], links:[["Code","https://github.com/dubea313-collab/INDOOR-AIR-QUALITY-MONITORING-SYSTEM"]] },
     { title:"RFID Attendance & Smart Irrigation Nodes", cat:"Embedded & IoT", year:"2026", status:"Built",
       problem:"Manual attendance and fixed-schedule watering waste time and water.",
       approach:"On the Thingz Kit mini board (ESP32 + LoRaWAN): RFID-based attendance, plus soil-moisture and rain sensors driving a pump, with Bluetooth monitoring.",
       outcome:"Working prototypes built during my internship at Enthu Technology Solutions.",
       stack:["ESP32","LoRaWAN","RFID","Bluetooth"], links:[] },
-    { title:"Smart Health Guard", cat:"Embedded & IoT", year:"2024", status:"Built",
-      problem:"Shared sanitizer dispensers and temperature checks need physical contact.",
-      approach:"MLX90614 IR sensor reads temperature; an Arduino Uno checks the threshold and drives a relay-controlled pump with external power isolation.",
-      outcome:"Working, fully contactless prototype for temperature screening and sanitizing.",
-      stack:["Arduino Uno","MLX90614","Relay","C++"], links:[["Code","https://github.com/dubea313-collab/Smart-Health-Guard"]] },
-    { title:"Indoor Air Quality Monitoring System", cat:"Embedded & IoT", year:"2025", status:"Built",
-      problem:"Indoor air pollution goes unnoticed without measurement.",
-      approach:"MQ-135 gas sensor read by an ESP32/Arduino, with smoothing, thresholds for alerts, and Wi-Fi transmission to an IoT platform.",
-      outcome:"Working IoT prototype with real-time remote monitoring.",
-      stack:["ESP32","MQ-135","Wi-Fi","C++"], links:[["Code","https://github.com/dubea313-collab/INDOOR-AIR-QUALITY-MONITORING-SYSTEM"]] },
+    { title:"Earthquake Alarm", cat:"Embedded & IoT", year:"2025", status:"Built",
+      imgs:[["images/stem-expo-2025.jpg","STEM Innovators Expo 2025 trophy and Certificate of Merit, KPRIET, 27 February 2025"]],
+      outcome:"Won the STEM Innovators Expo 2025 at KPR Institute of Engineering and Technology (Certificate of Merit, 27 Feb 2025).",
+      stack:["Prototype"], links:[] },
     { title:"Embedded Mini-Project Series", cat:"Embedded & IoT", year:"2025", status:"Built",
       imgs:[["images/mini-projects.jpg","Breadboard prototype: Arduino Uno with HC-SR04 ultrasonic sensor, LEDs and sanitizer pump"]],
       problem:"I wanted hands-on practice with sensing, actuation and microcontroller interfacing.",
-      approach:"Built four prototypes: Bluetooth (HC-05) fan & light control with a mobile app, an HC-SR04 ultrasonic distance meter with an LCD, an MQ-135 air-quality alarm, and the non-contact sanitizer.",
-      outcome:"Four working prototypes covering interrupts, timing, serial communication, I²C LCDs and relay/transistor drivers.",
+      approach:"Bluetooth (HC-05) fan & light control with a mobile app, and an HC-SR04 ultrasonic distance meter with an LCD, alongside the air-quality and sanitizer builds.",
+      outcome:"Working prototypes covering interrupts, timing, serial communication, I²C LCDs and relay/transistor drivers.",
       stack:["Arduino","HC-05","HC-SR04","LCD"], links:[["LinkedIn post","https://www.linkedin.com/in/andile-tafuma-dube-563552330/recent-activity/all/"]] },
     { title:"Water Level Detector (555 Timer)", cat:"PCB & Hardware", year:"2025", status:"Built",
       problem:"Tanks overflow when nobody notices the water level.",
@@ -452,7 +462,7 @@ const DATA = {
     { title:"AI Tutor for the Visually Impaired", cat:"Research & ML", year:"2025", status:"Concept",
       problem:"Most learning tools assume the user can see a screen.",
       approach:"Voice-in, audio-out assistive tutor on embedded hardware (microphone, speaker, ESP32 / Raspberry Pi), designed for hands-free use.",
-      outcome:"Documented system design. No hardware prototype yet.",
+      outcome:"Documented concept design. No hardware prototype yet.",
       stack:["ESP32 / Raspberry Pi","Audio I/O","Python"], links:[["Code","https://github.com/dubea313-collab/AI-TUTOR-FOR-THE-VISUALLY-IMPARED"]] }
   ],
 
@@ -462,45 +472,52 @@ const DATA = {
     { date:"2026-10", type:"Build", what:"Predictive maintenance & machine fault detection system", result:"Simulated in Proteus with ML alerts" },
     { date:"2026-09", type:"Build", what:"Finished the schematic and PCB layout for my custom ESP32-S3 board in KiCad", result:"Layout done · fabrication next" },
     { date:"2026-08", type:"Build", what:"Designed and built the ESP32 Robotics Control Board", result:"Working board" },
-    { date:"2026-08", type:"Course", what:"Realtime Programming for the QNX Operating System (QNX)", result:"Certified" },
-    { date:"2026-08", type:"Course", what:"Artificial Intelligence for Communication Systems (Universiti Tun Hussein Onn Malaysia)", result:"Certified" },
+    { date:"2026-08", type:"Course", what:"Real-Time Programming for the QNX Operating System (QNX)", result:"Certified" },
+    { date:"2026-08", type:"Course", what:"AI for Communication Systems (Universiti Tun Hussein Onn Malaysia)", result:"Certified" },
     { date:"2026-06", type:"Internship", what:"Research internship: closed-loop TENS for tremor, Osmania University, Hyderabad", result:"Research Intern · Jun–Jul" },
     { date:"2026-06", type:"Internship", what:"Embedded Systems & IoT internship, Enthu Technology Solutions", result:"Intern · RFID & IoT builds" },
-    { date:"2026-05", type:"Build", what:"Finished design of the 16-array line-follower robot (EasyEDA PCB + Fusion 360 CAD)", result:"Design phase complete" },
+    { date:"2026-05", type:"Build", what:"Finished design of the RODIX 16-channel line-follower (EasyEDA PCB + Fusion 360 CAD)", result:"Design phase complete" },
     { date:"2026-05", type:"Course", what:"Introduction to Industry 4.0 and Industrial IoT (NPTEL)", result:"Certified" },
+    { date:"2026", type:"Competition", what:"24-Hour Hackathon, International Global League, KPRIET", result:"Top 5 Finalist" },
     { date:"2025-12", type:"Internship", what:"PCB Design & IoT internship, KPRIET", result:"Intern · Dec–Jan" },
-    { date:"2025-12", type:"Course", what:"Introduction to IoT and Embedded Systems (UC Irvine, Coursera)", result:"Certified" },
+    { date:"2025-12", type:"Course", what:"Introduction to the Internet of Things and Embedded Systems (UC Irvine, Coursera)", result:"Certified" },
     { date:"2025-12", type:"Build", what:"Embedded mini-project series: Bluetooth automation, ultrasonic ranging, air quality, contactless sanitizer", result:"4 working prototypes" },
     { date:"2025-10", type:"Club", what:"Joined the Aviation & Robotics Club (ARC), KPRIET", result:"Technical Member" },
     { date:"2025-10", type:"Course", what:"Pattern Recognition and Applications (NPTEL)", result:"Certified" },
     { date:"2025-10", type:"Course", what:"Remote Sensing & Digital Image Analysis (IIRS, ISRO)", result:"Certified" },
-    { date:"2025-07", type:"Course", what:"AI For All (Intel & Digital India Corporation)", result:"Certified" },
+    { date:"2025-07", type:"Course", what:"AI Appreciation and AI for All (Intel & Digital India Corporation)", result:"Certified" },
     { date:"2025-02", type:"Competition", what:"STEM Innovators Expo 2025, KPRIET: earthquake alarm project", result:"Winner · Certificate of Merit" },
+    { date:"2025", type:"Competition", what:"Innosence Mini Expo", result:"Participant" },
     { date:"2025", type:"Course", what:"Cyber Smart certification", result:"Certified" },
     { date:"2025", type:"Course", what:"MATLAB course: simulations and data processing", result:"Completed" },
     { date:"2025", type:"Course", what:"Nature-based Solutions for Disaster & Climate Resilience (SDG Academy, edX)", result:"Completed" },
-    { date:"2024-10", type:"Competition", what:"Integration Bee at the 12th national-level techfest, Amrita Vishwa Vidyapeetham", result:"Participant" }
+    { date:"2024-10", type:"Competition", what:"Integration Bee at the 12th national-level techfest, Amrita Vishwa Vidyapeetham", result:"Participant" },
+    { date:"2024", type:"Competition", what:"Innovation Expo Competition, KPRIET", result:"3rd Place" }
   ],
 
   awards: [
     { title:"Winner, STEM Innovators Expo 2025", sub:"Earthquake alarm project · Certificate of Merit, KPRIET, 27 Feb 2025", yr:"2025", img:"images/stem-expo-2025.jpg" },
+    { title:"Top 5 Finalist, 24-Hour Hackathon", sub:"International Global League, KPRIET", yr:"2026" },
+    { title:"3rd Place, Innovation Expo Competition", sub:"KPRIET", yr:"2024" },
+    { title:"Participant, Innosence Mini Expo", sub:"", yr:"2025" },
     { title:"Participant, Integration Bee", sub:"12th national-level techfest, Amrita Vishwa Vidyapeetham", yr:"2024" }
   ],
   certs: [
-    { title:"Microelectronics: Devices to Circuits", sub:"NPTEL", yr:"2026" },
-    { title:"AI for Communication Systems", sub:"Universiti Tun Hussein Onn Malaysia", yr:"2026" },
-    { title:"Realtime Programming for QNX OS", sub:"QNX", yr:"2026" },
-    { title:"Industry 4.0 and Industrial IoT", sub:"NPTEL", yr:"2026" },
-    { title:"Intro to IoT and Embedded Systems", sub:"UC Irvine · Coursera", yr:"2025" },
-    { title:"Pattern Recognition and Applications", sub:"NPTEL", yr:"2025" },
-    { title:"Remote Sensing & Digital Image Analysis", sub:"IIRS, ISRO", yr:"2025" },
-    { title:"AI For All", sub:"Intel · Digital India Corporation", yr:"2025" },
-    { title:"Cyber Smart", sub:"Certification", yr:"2025" },
+    { title:"Microelectronics: Devices to Circuits", sub:"NPTEL", yr:"Nov 2026" },
+    { title:"AI for Communication Systems", sub:"Universiti Tun Hussein Onn Malaysia (UTHM)", yr:"Aug 2026" },
+    { title:"Real-Time Programming for the QNX OS", sub:"QNX", yr:"Aug 2026" },
+    { title:"Industry 4.0 and Industrial IoT", sub:"NPTEL", yr:"May 2026" },
+    { title:"Intro to the Internet of Things and Embedded Systems", sub:"UC Irvine · Coursera", yr:"Dec 2025" },
+    { title:"Pattern Recognition and Applications", sub:"NPTEL", yr:"Oct 2025" },
+    { title:"Remote Sensing & Digital Image Analysis", sub:"IIRS, ISRO", yr:"Oct 2025" },
+    { title:"AI Appreciation and AI for All", sub:"Intel · Digital India Corporation", yr:"Jul 2025" },
     { title:"MATLAB", sub:"Course completion", yr:"2025" },
+    { title:"Cyber Smart", sub:"Certification", yr:"2025" },
     { title:"Nature-based Solutions for Disaster Resilience", sub:"SDG Academy · edX", yr:"2025" }
   ],
   education: [
-    { title:"B.E., Electronics & Communication Engineering", sub:"KPR Institute of Engineering and Technology, Coimbatore", yr:"2024–28" }
+    { title:"B.E., Electronics & Communication Engineering (Honors in IoT for Smart Systems)", sub:"KPR Institute of Engineering and Technology, Coimbatore · CGPA 8.65 / 10 · Sep 2024 – Aug 2028", yr:"2024–28" },
+    { title:"Advanced Level (A-Level)", sub:"Daramombe High School · 3 A-Level passes: Physics, Pure Mathematics, Chemistry", yr:"2021–22" }
   ],
   publications: [
     { title:"From development board to custom embedded hardware: ESP32-S3 PCB design", sub:"LinkedIn post · 2,100+ impressions", yr:"2026" },
@@ -513,16 +530,16 @@ const DATA = {
     { k:"Volleyball", title:"KPRIET college volleyball team", img:"images/volleyball-team.jpg",
       text:"I play for my college volleyball team. Training and competing with the squad keeps me disciplined and has taught me a lot about communication and trust under pressure.",
       tags:["Team sport","KPRIET"] },
-    { k:"Chess", title:"Chess player",
-      text:"Chess is where I practise thinking several moves ahead, staying patient and spotting patterns. Those habits carry straight into debugging hardware.",
-      tags:["Strategy","Pattern recognition"] }
+    { k:"Chess · Languages · Volunteering", title:"Chess player, German speaker",
+      text:"Chess is where I practise thinking several moves ahead and spotting patterns, habits that carry straight into debugging hardware. I speak English fluently and have a good command of German, and I enjoy volunteering.",
+      tags:["Strategy","English","German","Volunteering"] }
   ],
 
   now: [
     { k:"Building", v:"Fabricating, assembling and bringing up my custom ESP32-S3 board." },
     { k:"Learning", v:"Real-time systems (QNX, RTOS) and analog microelectronics." },
     { k:"With the club", v:"Robots on the ARC control board: line followers, maze solvers and more." },
-    { k:"Looking for", v:"Embedded systems and hardware design internships." }
+    { k:"Looking for", v:"Embedded systems internships, especially in automotive electronics." }
   ],
 
   email: "dubea313@gmail.com",
@@ -573,8 +590,8 @@ function render(){
   drawLog("All");
 
   const list = arr => arr.map(x=>x.img
-    ? `<div class="li withimg"><img class="thumbi" src="${esc(x.img)}" alt="${esc(x.title)}" data-lb='${esc(JSON.stringify([[x.img,x.title]]))}' tabindex="0"><strong>${esc(x.title)}</strong><span class="yr">${esc(x.yr)}</span><span class="sub">${esc(x.sub)}</span></div>`
-    : `<div class="li"><strong>${esc(x.title)}</strong><span class="yr">${esc(x.yr)}</span><span class="sub">${esc(x.sub)}</span></div>`).join("");
+    ? `<div class="li withimg"><img class="thumbi" src="${esc(x.img)}" alt="${esc(x.title)}" data-lb='${esc(JSON.stringify([[x.img,x.title]]))}' tabindex="0"><strong>${esc(x.title)}</strong><span class="yr">${esc(x.yr)}</span>${x.sub?`<span class="sub">${esc(x.sub)}</span>`:""}</div>`
+    : `<div class="li"><strong>${esc(x.title)}</strong><span class="yr">${esc(x.yr)}</span>${x.sub?`<span class="sub">${esc(x.sub)}</span>`:""}</div>`).join("");
   $("beyondGrid").innerHTML = D.beyond.map(b=>`<div class="card"><span class="mono">${esc(b.k)}</span><h3>${esc(b.title)}</h3>${b.img?`<img src="${esc(b.img)}" alt="${esc(b.title)}" data-lb='${esc(JSON.stringify([[b.img,b.title]]))}' tabindex="0">`:""}<p>${esc(b.text)}</p>${b.tags?`<div class="chips">${b.tags.map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div>`:""}</div>`).join("");
   $("awardList").innerHTML = list(D.awards);
   $("certList").innerHTML = list(D.certs);
@@ -604,10 +621,10 @@ function makeFilter(id, opts, fn){
 function drawProjects(cat){
   $("projGrid").innerHTML = DATA.projects.filter(p=>cat==="All"||p.cat===cat).map(p=>`<article class="proj">
     ${p.imgs&&p.imgs.length
-      ? `<button type="button" class="ph" aria-label="View photos of ${esc(p.title)}" data-lb='${esc(JSON.stringify(p.imgs))}'><img src="${esc(p.imgs[0][0])}" alt="${esc(p.imgs[0][1])}" loading="lazy"><span class="tag">${esc(p.cat)}</span><span class="st st-${p.status.toLowerCase().replace(/\s+/g,'-')}">${esc(p.status)} · ${esc(p.year)}</span>${p.imgs.length>1?`<span class="more">${p.imgs.length} photos</span>`:""}</button>`
-      : `<div class="thumb"><span class="tag">${esc(p.cat)}</span><span class="st st-${p.status.toLowerCase().replace(/\s+/g,'-')}">${esc(p.status)} · ${esc(p.year)}</span></div>`}
+      ? `<button type="button" class="ph" aria-label="View photos of ${esc(p.title)}" data-lb='${esc(JSON.stringify(p.imgs))}'><img src="${esc(p.imgs[0][0])}" alt="${esc(p.imgs[0][1])}" loading="lazy"><span class="tag">${esc(p.cat)}</span><span class="st st-${p.status.toLowerCase().replace(/\s+/g,'-')}">${esc(p.status)}${p.year?` · ${esc(p.year)}`:""}</span>${p.imgs.length>1?`<span class="more">${p.imgs.length} photos</span>`:""}</button>`
+      : `<div class="thumb"><span class="tag">${esc(p.cat)}</span><span class="st st-${p.status.toLowerCase().replace(/\s+/g,'-')}">${esc(p.status)}${p.year?` · ${esc(p.year)}`:""}</span></div>`}
     <div class="body"><h3>${esc(p.title)}</h3>
-      <div class="prs"><div><b>Problem</b>${esc(p.problem)}</div><div><b>Approach</b>${esc(p.approach)}</div></div>
+      ${(p.problem||p.approach)?`<div class="prs">${p.problem?`<div><b>Problem</b>${esc(p.problem)}</div>`:""}${p.approach?`<div><b>Approach</b>${esc(p.approach)}</div>`:""}</div>`:""}
       <div class="outcome">${esc(p.outcome)}</div>
       <div class="chips">${p.stack.map(s=>`<span class="chip">${esc(s)}</span>`).join("")}</div></div>
     ${p.links.length?`<div class="foot">${p.links.map(([t,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} ↗</a>`).join("")}</div>`:""}
